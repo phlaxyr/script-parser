@@ -1,6 +1,7 @@
 package script.parser.objects;
 
 public class AssignmentStatement extends BasicStatement {
+	private static final long serialVersionUID = 6691001676477011939L;
 	public String type;	//Only if it's a variable declaration
 	public String var;
 	public boolean isDeclaration;

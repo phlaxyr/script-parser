@@ -1,13 +1,10 @@
 package script.parser;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import script.parser.objects.ClassStatement;
 import script.parser.objects.Program;
-import script.parser.objects.Statement;
 import script.parser.objects.Token;
 import minerguy31.nativelib.FileIO;
 

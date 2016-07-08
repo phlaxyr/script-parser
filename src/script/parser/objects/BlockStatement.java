@@ -7,6 +7,7 @@ import script.parser.Tokenizer;
 
 public class BlockStatement extends Statement {
 	
+	private static final long serialVersionUID = -6368400850935417901L;
 	public ArrayList<Statement>substatements = new ArrayList<>();
 	
 	public BlockStatement(String t) {
