@@ -45,7 +45,9 @@ public class Token {
 	
 	public static StatementType getType(Token t){
 		if(!t.containsSubtokens()){
-			//TODO: Detect AssignmentStatement
+			if (t.getStatement().contains("=")){
+				return StatementType.ASSIGN;
+			}
 		}
 		String[]parts = t.getStatement().split(" ");
 		
