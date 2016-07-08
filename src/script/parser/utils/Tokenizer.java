@@ -1,4 +1,4 @@
-package script.parser;
+package script.parser.utils;
 
 import java.util.ArrayList;
 

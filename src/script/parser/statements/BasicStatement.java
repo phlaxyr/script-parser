@@ -1,8 +1,8 @@
-package script.parser.objects;
+package script.parser.statements;
 
-import script.parser.StatementType;
+import script.parser.enums.StatementType;
 
-public class BasicStatement extends Statement {
+public abstract class BasicStatement extends Statement {
 
 	private static final long serialVersionUID = -2090828772652539299L;
 

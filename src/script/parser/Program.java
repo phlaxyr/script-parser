@@ -1,7 +1,9 @@
-package script.parser.objects;
+package script.parser;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import script.parser.statements.ClassStatement;
 
 public class Program implements Serializable {
 

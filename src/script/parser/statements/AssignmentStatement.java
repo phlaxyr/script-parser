@@ -1,4 +1,6 @@
-package script.parser.objects;
+package script.parser.statements;
+
+import script.parser.Expression;
 
 public class AssignmentStatement extends BasicStatement {
 	private static final long serialVersionUID = 6691001676477011939L;

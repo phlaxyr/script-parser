@@ -1,10 +1,10 @@
-package script.parser;
+package script.parser.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
-import script.parser.objects.Program;
+import script.parser.Program;
 
 public class Serializer {
 	private Serializer() {}

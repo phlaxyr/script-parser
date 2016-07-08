@@ -3,9 +3,8 @@ package script.parser;
 import java.io.File;
 import java.util.ArrayList;
 
-import script.parser.objects.ClassStatement;
-import script.parser.objects.Program;
-import script.parser.objects.Token;
+import script.parser.statements.ClassStatement;
+import script.parser.utils.Serializer;
 import minerguy31.nativelib.FileIO;
 
 /*
