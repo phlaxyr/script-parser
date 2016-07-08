@@ -9,9 +9,8 @@ public class MethodStatement extends BlockStatement{
 	public MethodStatement(String t) {
 		super(t);
 		String header = t.split("\\(")[0];
-		String[] har = header.split(" ");
-		returntype = har[0].split("<")[1].split(">")[0];
-		methodname = har[har.length - 1];
+		returntype = header.split("<")[1].split(">")[0];
+		methodname = header.split(">")[1].trim();
 		
 	}
 	
