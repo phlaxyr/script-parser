@@ -44,8 +44,9 @@ public class Token {
 	}
 	
 	public static StatementType getType(Token t){
-		if(!t.containsSubtokens())
-			return StatementType.BASIC;
+		if(!t.containsSubtokens()){
+			//TODO: Detect AssignmentStatement
+		}
 		String[]parts = t.getStatement().split(" ");
 		
 		switch(parts[0]){
@@ -73,6 +74,8 @@ public class Token {
 			return new ClassStatement(this.statements);
 		case METHOD:
 			return new MethodStatement(this.statements);
+		case ASSIGN:
+			return new AssignmentStatement(this.statements);
 		default:
 			break;
 		}
