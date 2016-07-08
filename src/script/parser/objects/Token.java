@@ -51,8 +51,6 @@ public class Token {
 		switch(parts[0]){
 		case "Class":
 			return StatementType.CLASS;
-		case "Function":
-			return StatementType.FUNCTION;
 		default:
 			break;
 		}
