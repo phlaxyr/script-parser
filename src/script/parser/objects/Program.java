@@ -15,4 +15,9 @@ public class Program implements Serializable {
 		classes.add(cs);
 		return this;
 	}
+	
+	@Override
+	public String toString(){
+		return classes.toString();
+	}
 }
