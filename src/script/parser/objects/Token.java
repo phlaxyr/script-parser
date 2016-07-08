@@ -54,6 +54,8 @@ public class Token {
 		switch(parts[0]){
 		case "Class":
 			return StatementType.CLASS;
+		case "return":
+			return StatementType.RETURN;
 		default:
 			break;
 		}
@@ -68,8 +70,6 @@ public class Token {
 	
 	public Statement toStatement(){
 		switch(getType(this)){
-		case BASIC:
-			return new BasicStatement(this.statements);
 		case BLOCK:
 			return new BlockStatement(this.statements);
 		case CLASS:
@@ -78,6 +78,8 @@ public class Token {
 			return new MethodStatement(this.statements);
 		case ASSIGN:
 			return new AssignmentStatement(this.statements);
+		case RETURN:
+			return new ReturnStatement(this.statements);
 		default:
 			break;
 		}
