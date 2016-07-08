@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import script.parser.enums.StatementType;
 import script.parser.statements.AssignmentStatement;
 import script.parser.statements.BlockStatement;
+import script.parser.statements.CallStatement;
 import script.parser.statements.ClassStatement;
 import script.parser.statements.MethodStatement;
 import script.parser.statements.ReturnStatement;
@@ -66,6 +67,10 @@ public class Token {
 			break;
 		}
 		
+		if(t.getStatement().contains("(")&&!t.getStatement().contains(" (")){
+			return StatementType.CALL;
+		}
+		
 		if(parts[0].split("<")[0].startsWith("Method"))
 			return StatementType.METHOD;
 		else if(parts[0].split("<")[0].startsWith("Function"))
@@ -86,6 +91,8 @@ public class Token {
 			return new AssignmentStatement(this.statements);
 		case RETURN:
 			return new ReturnStatement(this.statements);
+		case CALL:
+			return new CallStatement(this.statements);
 		default:
 			break;
 		}
