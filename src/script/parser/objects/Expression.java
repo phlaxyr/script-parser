@@ -1,6 +1,8 @@
 package script.parser.objects;
 
-public class Expression {
+import java.io.Serializable;
+
+public class Expression implements Serializable {
 	//TODO: Improve
 	public String exp;
 	public Expression(String ex){
