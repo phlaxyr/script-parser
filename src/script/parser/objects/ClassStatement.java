@@ -3,6 +3,8 @@ package script.parser.objects;
 import script.parser.StatementType;
 
 public class ClassStatement extends BlockStatement {
+
+	private static final long serialVersionUID = 7243754548818286899L;
 	private String classname;
 	
 	public ClassStatement(String t) {

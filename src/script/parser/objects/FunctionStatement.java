@@ -4,6 +4,7 @@ import script.parser.StatementType;
 
 public class FunctionStatement extends BlockStatement{
 
+	private static final long serialVersionUID = 3316282013261557408L;
 	private String functionName;
 	private String returnType;
 	

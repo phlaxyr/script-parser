@@ -1,11 +1,10 @@
 package script.parser;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-import script.parser.objects.Statement;
+import script.parser.objects.ClassStatement;
+import script.parser.objects.Program;
 import script.parser.objects.Token;
 import minerguy31.nativelib.FileIO;
 
@@ -19,5 +18,7 @@ public class TestMain {
 		ArrayList<Token>subtokens=file.getSubTokens();
 		System.out.println(subtokens);
 		System.out.println(file.toStatement());
+		Program p = new Program().addClass((ClassStatement) file.toStatement());
+		Serializer.serialize(p, new File("output.txt"));
 	}
 }
