@@ -18,5 +18,6 @@ public class TestMain {
 		System.out.println(file);
 		ArrayList<Token>subtokens=file.getSubTokens();
 		System.out.println(subtokens);
+		System.out.println(file.toStatement());
 	}
 }

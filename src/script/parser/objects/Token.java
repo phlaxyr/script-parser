@@ -51,16 +51,16 @@ public class Token {
 		case "Class":
 			return StatementType.CLASS;
 		default:
-			return null;
+			return StatementType.BLOCK;
 		}
 	}
 	
 	public Statement toStatement(){
 		switch(getType(this)){
 		case BASIC:
-			break;
+			return new BasicStatement(this.statements);
 		case BLOCK:
-			break;
+			return new BlockStatement(this.statements);
 		case CLASS:
 			return new ClassStatement(this.statements);
 		default:
