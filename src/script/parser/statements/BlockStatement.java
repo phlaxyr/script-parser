@@ -1,9 +1,10 @@
-package script.parser.objects;
+package script.parser.statements;
 
 import java.util.ArrayList;
 
-import script.parser.StatementType;
-import script.parser.Tokenizer;
+import script.parser.Token;
+import script.parser.enums.StatementType;
+import script.parser.utils.Tokenizer;
 
 public class BlockStatement extends Statement {
 	

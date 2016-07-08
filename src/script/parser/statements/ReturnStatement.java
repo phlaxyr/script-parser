@@ -1,4 +1,4 @@
-package script.parser.objects;
+package script.parser.statements;
 
 public class ReturnStatement extends BasicStatement {
 	private static final long serialVersionUID = 3736525393565830511L;

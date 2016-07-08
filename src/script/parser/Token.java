@@ -1,9 +1,15 @@
-package script.parser.objects;
+package script.parser;
 
 import java.util.ArrayList;
 
-import script.parser.StatementType;
-import script.parser.Tokenizer;
+import script.parser.enums.StatementType;
+import script.parser.statements.AssignmentStatement;
+import script.parser.statements.BlockStatement;
+import script.parser.statements.ClassStatement;
+import script.parser.statements.MethodStatement;
+import script.parser.statements.ReturnStatement;
+import script.parser.statements.Statement;
+import script.parser.utils.Tokenizer;
 
 public class Token {
 	private String statements;

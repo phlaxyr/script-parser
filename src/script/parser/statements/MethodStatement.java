@@ -1,6 +1,6 @@
-package script.parser.objects;
+package script.parser.statements;
 
-import script.parser.StatementType;
+import script.parser.enums.StatementType;
 
 public class MethodStatement extends BlockStatement{
 

@@ -1,4 +1,4 @@
-package script.parser.objects;
+package script.parser;
 
 import java.io.Serializable;
 
