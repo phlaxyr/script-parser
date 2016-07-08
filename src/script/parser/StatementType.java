@@ -1,5 +1,5 @@
 package script.parser;
 
 public enum StatementType {
-	BASIC, BLOCK, CLASS
+	BASIC, BLOCK, CLASS, METHOD, FUNCTION
 }

@@ -46,13 +46,23 @@ public class Token {
 	public static StatementType getType(Token t){
 		if(!t.containsSubtokens())
 			return StatementType.BASIC;
+		String[]parts = t.getStatement().split(" ");
 		
-		switch(t.getStatement().split(" ")[0]){
+		switch(parts[0]){
 		case "Class":
 			return StatementType.CLASS;
+		case "Function":
+			return StatementType.FUNCTION;
 		default:
-			return StatementType.BLOCK;
+			break;
 		}
+		
+		if(parts[0].split("<")[0].startsWith("Method"))
+			return StatementType.METHOD;
+		else if(parts[0].split("<")[0].startsWith("Function"))
+			return StatementType.FUNCTION;
+		
+		return null;	//Should never happen in final release
 	}
 	
 	public Statement toStatement(){
@@ -63,10 +73,12 @@ public class Token {
 			return new BlockStatement(this.statements);
 		case CLASS:
 			return new ClassStatement(this.statements);
+		case METHOD:
+			return new MethodStatement(this.statements);
 		default:
 			break;
 		}
 		
-		return null;
+		return null;	//Should never happen in final release
 	}
 }
