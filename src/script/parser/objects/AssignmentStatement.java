@@ -15,7 +15,13 @@ public class AssignmentStatement extends BasicStatement {
 		} else {
 			isDeclaration = true;
 			var = t.split("=",2)[0].split(" ")[1].trim();
+			type = parts[0];
 		}
 		expression = new Expression(t.split("=",2)[1]);
+	}
+	
+	@Override
+	public String toString(){
+		return "Var("+(isDeclaration?"Decl":"Set")+")<"+(isDeclaration?type:"")+"> "+var+" = "+expression.exp;
 	}
 }
