@@ -1,6 +1,6 @@
 package script.parser.statements;
 
-import script.parser.Expression;
+import script.parser.expressions.Expression;
 
 public class AssignmentStatement extends BasicStatement {
 	private static final long serialVersionUID = 6691001676477011939L;
@@ -20,11 +20,11 @@ public class AssignmentStatement extends BasicStatement {
 			var = t.split("=",2)[0].split(" ")[1].trim();
 			type = parts[0];
 		}
-		expression = new Expression(t.split("=",2)[1]);
+		//expression = new Expression(t.split("=",2)[1]);
 	}
 	
 	@Override
 	public String toString(){
-		return "Var("+(isDeclaration?"Decl":"Set")+")<"+(isDeclaration?type:"")+"> "+var+" = "+expression.exp;
+		return "Var("+(isDeclaration?"Decl":"Set")+")<"+(isDeclaration?type:"")+"> "+var+" = "+expression;
 	}
 }
