@@ -6,7 +6,9 @@ import script.parser.expressions.Expression;
 
 public final class ExpressionParser {
 	private ExpressionParser() {}
-	private static final String[] NUMBEROPERATORS = {"\\+","-","\\*","/","^","=","\\("};
+	private static final String[] OPERATORS = {"+","-","*","/","^"};
+	private static final String[] REGEXOPERATORS = {"\\+","-","\\*","/","^"};
+	
 	
 	/*
 	 * To fully parse-ify text, use a combination of hasExpressions and parseLevel().
@@ -22,39 +24,48 @@ public final class ExpressionParser {
 	 * 
 	 */
 	
-	public static Expression parse(String rawText) {
-		String leftVal;
-		String rightVal;
-		Expression leftExp = null;
-		Expression rightExp = null;
-		String operator;
-		String[] subRawText;
-		boolean hasExp=false;
-		for(String str:NUMBEROPERATORS) {
-			if (rawText.contains(str)) {
-				operator=str;
-				subRawText=rawText.split(str);
-				leftVal=subRawText[0];
-				rightVal=subRawText[1];
-				if(hasExpression(leftVal)) {
-					hasExp=true;
-					leftExp = parse(leftVal);
+	public static Expression simpleParse(String rawText) {
+		System.out.println("ye "+rawText);
+		int operatorIndex;
+		String lval, operator, rval;
+		Expression lexp, rexp = null;
+		boolean isFurtherParsible=false;
+		for(int i=0;i<OPERATORS.length;i++) {
+			if (rawText.contains(OPERATORS[i])) {
+				operatorIndex=rawText.indexOf(OPERATORS[i]);
+				lval=rawText.substring(0,operatorIndex);
+				rval=rawText.substring(operatorIndex+1);
+				operator=OPERATORS[i];
+				System.out.println(lval+ "   "+rval);
+				System.out.println(new BasicExpression("("+lval+")",operator,"("+rval+")"));
+				System.out.println("LHasExpr:"+hasExpression(lval));
+				System.out.println("RHasExpr:"+hasExpression(rval));
+
+				if(hasExpression(lval)) {
+					lexp = simpleParse(lval);
+					isFurtherParsible=true;
+				} else {
+					lexp=new BasicExpression(lval,"","");
 				}
-				if(hasExpression(rightVal)) {
-					hasExp=true;
-					rightExp = parse(rightVal);
+				if(hasExpression(rval)) {
+					rexp = simpleParse(rval);
+					isFurtherParsible=true;
+				} else {
+					rexp=new BasicExpression(rval,"","");
 				}
-				if(hasExp){
-					return new BlockExpression(leftExp,operator,rightExp);
-				} else return new BasicExpression(leftVal,operator,rightVal);
+				if(isFurtherParsible) {
+					System.out.println("lexp: "+lexp+"\nrexp: "+rexp);
+					return new BlockExpression(lexp,operator,rexp);
+				}
+				return new BasicExpression("("+lval+")",operator,"("+rval+")");
 			}
-		} return new BasicExpression(rawText,"","");
-		
+		}
+		return new BasicExpression("6","","");
 	}
 	
 	public static boolean hasExpression(String rawText) {
 		boolean hasExp=false;
-		for(String str:NUMBEROPERATORS) {
+		for(String str:OPERATORS) {
 			hasExp|=rawText.contains(str);
 			//really inefficient, but I'm too lazy to examine regex today
 		}
