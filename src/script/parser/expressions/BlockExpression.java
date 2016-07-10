@@ -33,4 +33,9 @@ public class BlockExpression extends Expression {
 	public String getRval() {
 		return rval.getRval();
 	}
+	
+	@Override
+	public String toString(){
+		return "("+getLval() + getOperator() + getRval()+")";
+	}
 }
