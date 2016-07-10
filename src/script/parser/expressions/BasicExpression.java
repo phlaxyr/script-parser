@@ -1,5 +1,9 @@
 package script.parser.expressions;
 
+import java.util.ArrayList;
+
+import script.parser.utils.ExpressionParser;
+
 public class BasicExpression extends Expression {
 
 	private static final long serialVersionUID = 5994162608353948937L;
@@ -26,5 +30,18 @@ public class BasicExpression extends Expression {
 	public String getRval() {
 		return rval;
 	}
+
+	@Override
+	public void clearPlaceholders(ArrayList<String> placeholders) {
+		System.out.println(lval+":"+rval);
+		if(this.getLval().startsWith(ExpressionParser.placeholder)){
+			int num = Integer.valueOf(lval.split("\\.")[1]);
+			lval = placeholders.get(num);
+		}else if(this.getRval().startsWith(ExpressionParser.placeholder)){
+			int num = Integer.valueOf(rval.split("\\.")[1]);
+			rval = placeholders.get(num);
+		}
+	}
+
 
 }

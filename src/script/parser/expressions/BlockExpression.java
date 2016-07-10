@@ -1,5 +1,7 @@
 package script.parser.expressions;
 
+import java.util.ArrayList;
+
 public class BlockExpression extends Expression {
 	
 	private static final long serialVersionUID = 5123815753915499326L;
@@ -37,5 +39,11 @@ public class BlockExpression extends Expression {
 	@Override
 	public String toString(){
 		return "("+getLval() + getOperator() + getRval()+")";
+	}
+
+	@Override
+	public void clearPlaceholders(ArrayList<String> placeholders) {
+		lval.clearPlaceholders(placeholders);
+		rval.clearPlaceholders(placeholders);
 	}
 }
