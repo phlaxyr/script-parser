@@ -21,7 +21,7 @@ public class BlockExpression extends Expression {
 	
 	@Override
 	public String getLval() {
-		return lval.getLval();
+		return lval.toString();
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class BlockExpression extends Expression {
 
 	@Override
 	public String getRval() {
-		return rval.getRval();
+		return rval.toString();
 	}
 	
 	@Override
