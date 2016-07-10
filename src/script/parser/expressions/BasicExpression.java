@@ -1,6 +1,6 @@
 package script.parser.expressions;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 import script.parser.utils.ExpressionParser;
 
@@ -32,14 +32,15 @@ public class BasicExpression extends Expression {
 	}
 
 	@Override
-	public void clearPlaceholders(ArrayList<String> placeholders) {
-		System.out.println(lval+":"+rval);
-		if(this.getLval().startsWith(ExpressionParser.placeholder)){
-			int num = Integer.valueOf(lval.split("\\.")[1]);
-			lval = placeholders.get(num);
-		}else if(this.getRval().startsWith(ExpressionParser.placeholder)){
-			int num = Integer.valueOf(rval.split("\\.")[1]);
-			rval = placeholders.get(num);
+	public void clearPlaceholders(Map<Integer,String> placeholders) {
+		while(this.getLval().contains(ExpressionParser.placeholder)){
+			int num = Integer.valueOf(lval.split("\\.")[1].replaceAll("\\D", ""));
+			lval = lval.replace(ExpressionParser.placeholder+num,placeholders.get(num));
+			System.out.println("LV "+lval);
+		}
+		while(this.getRval().contains(ExpressionParser.placeholder)){
+			int num = Integer.valueOf(rval.split("\\.")[1].replaceAll("\\D", ""));
+			rval = rval.replace(ExpressionParser.placeholder+num,placeholders.get(num));
 		}
 	}
 

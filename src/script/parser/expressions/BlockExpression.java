@@ -1,6 +1,6 @@
 package script.parser.expressions;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 public class BlockExpression extends Expression {
 	
@@ -42,7 +42,7 @@ public class BlockExpression extends Expression {
 	}
 
 	@Override
-	public void clearPlaceholders(ArrayList<String> placeholders) {
+	public void clearPlaceholders(Map<Integer,String> placeholders) {
 		lval.clearPlaceholders(placeholders);
 		rval.clearPlaceholders(placeholders);
 	}
