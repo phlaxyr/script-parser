@@ -17,4 +17,5 @@
 # Test files
 test.txt
 output.txt
+Test*.java
 /bin/
