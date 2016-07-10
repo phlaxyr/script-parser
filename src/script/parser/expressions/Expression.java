@@ -1,6 +1,7 @@
 package script.parser.expressions;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public abstract class Expression implements Serializable {
 	
@@ -14,4 +15,6 @@ public abstract class Expression implements Serializable {
 	public String toString(){
 		return "("+getLval() + getOperator() + getRval()+")";
 	}
+	
+	public abstract void clearPlaceholders(Map<Integer, String> repl);
 }
