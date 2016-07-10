@@ -12,6 +12,6 @@ public abstract class Expression implements Serializable {
 	
 	@Override
 	public String toString(){
-		return getLval() + getOperator() + getRval();
+		return "("+getLval() + getOperator() + getRval()+")";
 	}
 }
