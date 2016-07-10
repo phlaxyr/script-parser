@@ -18,4 +18,19 @@ public class BlockExpression extends Expression {
 		this.rval = rval;
 		this.callname = callname;
 	}
+	
+	@Override
+	public String getLval() {
+		return lval.getLval();
+	}
+
+	@Override
+	public String getOperator() {
+		return op;
+	}
+
+	@Override
+	public String getRval() {
+		return rval.getRval();
+	}
 }

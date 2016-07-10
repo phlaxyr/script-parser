@@ -12,4 +12,19 @@ public class BasicExpression extends Expression {
 		this.rval = rval;
 	}
 
+	@Override
+	public String getLval() {
+		return lval;
+	}
+
+	@Override
+	public String getOperator() {
+		return op;
+	}
+
+	@Override
+	public String getRval() {
+		return rval;
+	}
+
 }
