@@ -15,4 +15,13 @@ public class Operator {
 		nestlvl = nest;
 		preclvl = prec;
 	}
+	
+	@Override
+	public String toString(){
+		return "{"+lval+op+rval+","+getScore()+"}";
+	}
+	
+	public int getScore(){
+		return nestlvl*Expression.OPERATORS.length + preclvl;
+	}
 }
