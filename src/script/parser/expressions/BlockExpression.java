@@ -39,6 +39,7 @@ public class BlockExpression extends Expression {
 	public String getOperator() {
 		return op;
 	}
+	
 
 	@Deprecated
 	@Override
@@ -60,5 +61,10 @@ public class BlockExpression extends Expression {
 			ret.add(e.toString());
 		}
 		return ret;
+	}
+	
+	@Override
+	public String getVal(int index) {
+		return values.get(index).toString();
 	}
 }

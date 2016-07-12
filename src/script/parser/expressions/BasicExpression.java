@@ -58,5 +58,9 @@ public class BasicExpression extends Expression {
 		return values;
 	}
 
+	@Override
+	public String getVal(int index) {
+		return values.get(index); //the only time a string.tostring is useful
+	}
 
 }

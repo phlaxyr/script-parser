@@ -24,6 +24,8 @@ public abstract class Expression implements Serializable {
 	
 	public abstract ArrayList<String> getVals();
 	
+	public abstract String getVal(int index);
+	
 	@Override
 	public String toString(){
 		return "("+String.join(getOperator(),getVals())+")";
@@ -78,6 +80,7 @@ public abstract class Expression implements Serializable {
 		
 		return null;	//Temporary
 	}
+	
 	
 	private static int getPrecendance(String c){
 		for(int i=0;i<OPERATORS.length;i++){
